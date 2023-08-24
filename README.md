@@ -1,2 +1,1 @@
-# cpp_traning
-A collection of self-study c++ simple code
+#####메모장에 적어두고 옮겨두지 않아서 양식 정리중입니다.
