@@ -43,7 +43,10 @@
 
 
 #### 시스템 스택 대강 예시 
-이미지 : https://ifh.cc/g/BXVKgM.png
+이미지 : 
+![Stack][logo]
+[logo] https://ifh.cc/g/BXVKgM.png
+
 -사용예시 : Undo(되돌리기) 기능, 괄호검사, 계산기, 미로탐색
 
 
