@@ -21,7 +21,8 @@
 #### 관련 예시(C++ 기준)
 
 ##### 동적 할당
-```cpp
+cpp
+```
 int *ptr = new int;  // 정수를 위한 메모리를 동적으로 할당
 *ptr = 10;           // 할당된 메모리에 10을 저장
 
@@ -29,7 +30,8 @@ delete ptr;          // 동적으로 할당된 메모리 해제
 ```
 
 ##### 동적 할당 해제
-```cpp
+cpp
+```
 int *arr = new int[10];  // 10개의 정수를 저장할 수 있는 메모리를 동적으로 할당
 
 for (int i = 0; i < 10; i++) {
@@ -53,24 +55,29 @@ new / delete : C++에서 사용.
 
 2. 할당 방식 
 malloc / free : 지정된 크기의 메모리를 할당하고 그 메모리의 주소를 반환하며, 이 때, 할당된 메모리는 초기화되지 않는다.
-``` c
+c
+```
 int *arr = (int*)malloc(5 * sizeof(int));  // 5개의 int 크기만큼의 메모리를 할당
 ```
 
 new / delete : new 연산자는 객체를 위한 메모리를 할당하면서 해당 객체의 생성자를 호출한다. 기본 데이터 타입의 경우, **초기화를 따로 하지 않으면 값이 미정의** 된다.
-``` c++
+cpp
+```
 int *num = new int;     // int를 위한 메모리를 할당
 int *arr = new int[5];  // 5개의 int를 위한 메모리를 할당
 ```
 
 3. 해제 방식 
 malloc / free : **free 함수** 를 이용하여 해제. **단순한 메모리 반환이기 때문에 소멸자나 정리 코드를 호출하지 않는다.**
-``` c
+c
+```
 free(arr);
 ```
 
 new / delete : **delete 연산자** 를 사용하여 해제. **객체의 경우, 소멸자도 호출된다.** 
-``` c++
+
+cpp
+``` 
 delete num;
 delete[] arr;  // 배열을 할당 해제할 때는 delete[]를 사용
 ```
@@ -97,13 +104,13 @@ Win32 API의 일부이며, 주로 더 큰 메모리 블록의 할당이나 메�
 3. 보호 수준 설정 : 메모리를 할당할 때, 해당 메모리 영역의 접근 권한(읽기, 쓰기, 실행)을 지정할 수 있다.
 
 #### 함수의 프로토타입 예시
-``` c
+c
+```
 LPVOID VirtualAlloc(
   LPVOID lpAddress, 	// 원하는 시작 주소를 지정. 보통 NULL을 지정하면 시스템이 적절한 주소를 선택한다.
   SIZE_T dwSize,      	// 할당하거나 예약하려는 메모리의 크기를 바이트 단위로 지정한다.
   DWORD  flAllocationType,    // 메모리 할당의 유형을 지정한다. (예: MEM_COMMIT, MEM_RESERVE)
   DWORD  flProtect	            // 메모리 페이지의 보호 옵션을 지정한다. (예: PAGE_READONLY, PAGE_READWRITE)
-
 
 // 1MB의 메모리를 예약하고 할당
 void* mem = VirtualAlloc(NULL, 1024 * 1024, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
